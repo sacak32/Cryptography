@@ -77,15 +77,40 @@ def bgw( p, n, l, P, Q, values, a, b, c ):
     return lagrange( p, pairs )
     
 # Application of bgw protocol
-p = 23		# make this just too big
 n = 3			# number of people
 l = floor((n-1)/2)
-P = [2,1,2] 		# pi's
-Q = [3,4,1]		# qi's
+P = [23,12,8] 		# pi's
+Q = [35,8,16]		# qi's
 v = 1			# value coefficients
 values = [v*x for x in range(1, n+1) ]	# values to put in functions
-a = [[1],[1],[3]]   	# Size n*l, n people chooses l random number
-b = [[2],[2],[4]]	# Size n*l, n people chooses l random number
-c = [[0,1],[1,2],[1,-1]] # Size n*2l, n people chooses 2l random number
+a = [[3],[5],[6]]   	# Size n*l, n people chooses l random number
+b = [[7],[4],[1]]	# Size n*l, n people chooses l random number
+c = [[1,4],[6,2],[4,3]] # Size n*2l, n people chooses 2l random number
+r1 = [8,11,21]
+r2 = [15,19,9]
+M = 11
 
-bgw( p, n, l, P, Q, values, a, b, c )
+# set primes less then M
+primes = []
+for i in range(3,M+1):
+    if is_prime(i):
+        primes.append(i)
+        
+# calculate results
+pfirst, psecond, qfirst, qsecond = [], [], [], []
+for p in primes:
+    pfirst.append( bgw( p, n, l, P, r1, values, a, b, c ) )
+    psecond.append( bgw( p, n, l, P, r2, values, a, b, c ) )
+    qfirst.append( bgw( p, n, l, Q, r1, values, a, b, c ) )
+    qsecond.append( bgw( p, n, l, Q, r2, values, a, b, c ) )
+N = bgw( next_prime(100000), n, l, P, Q, values, a, b, c )
+
+# print results
+for i in range(len(primes)):
+    print( pfirst[i], psecond[i], qfirst[i], qsecond[i] )
+print( "N:", N )
+
+
+
+
+
