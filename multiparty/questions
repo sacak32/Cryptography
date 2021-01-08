@@ -1,0 +1,10 @@
+Illustrate each below with a numerical example
+1) Shamir's secret share algorithm
+2) Secure multi party addition algorithm
+3) Secure multi party multiplication algorithm
+4) BGW protocol (For this also write an algorithm to be used in (5)) 
+5) Distributed Trial Division for the Multi Party RSA (pick p_i"s and q_j's so that p and q are prime)
+6) Distributed by primality test for the Multi Party RSA. 
+7) Finding the  encryption exponent for the Multi Party RSA
+8) Finding the decryption exponent for the Multi Party RSA
+9) Encryption and decryption in  Multi Party RSA
