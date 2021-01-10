@@ -24,7 +24,7 @@ A = R(34)
 c1 = R(661)
 c2 = R(1325)
 
-m = c1^(p-1-a) * c2
+m = c1^(-a) * c2
 print ( "m:", m )
 
 # Part d 
