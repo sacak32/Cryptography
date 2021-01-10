@@ -1,41 +1,18 @@
 n = 3
-p1, p2, p3 = 23, 12, 8
-q1, q2, q3 = 35, 8, 16
-p = p1+p2+p3 
-q = q1+q2+q3
-N = p*q
-R = Integers(N)
-
-# Encryption exponent
+N = 2537
 e = 101
+d1, d2, d3 = -1448, 11, 14
+R = Integers(N)
+m = R(231)
 
-o1, o2, o3 = N - p1 - q1 + 1, -p2 -q2, -p3 -q3
-print( "o1:", o1, "o2:", o2, "o3:", o3 )
+# encrypt
+c = m^e
+print( "c:", c )
 
-print( "o1(e):", o1 % e )
-print( "o2(e):", o2 % e )
-print( "o3(e):", o3 % e )
-
-x = ( o1 + o2 + o3 ) % e
-print( "Q(N)(mod e):", x )
-print( "gcd(e,Q(N)):", gcd(e, x) )
-
-xinv = inverse_mod( x, e )
-print( "inv(Q(N)):", xinv )
- 
-# Decryption exponent
-d1 = floor( ( 1 - o1*xinv ) / e )
-d2 = floor( -( o2*xinv ) / e )
-d3 = floor( -( o3*xinv ) / e )
-print( "d1:", d1, "d2:", d2, "d3:", d3 )
-
-# RSA
-m = R(541)
-
-m1 = m^(d1*e)
-m2 = m^(d2*e)
-m3 = m^(d3*e)
+# decrypt
+m1 = c^d1
+m2 = c^d2
+m3 = c^d3
 m_ = m1*m2*m3
-
-for i in range(n):
-    print( i, ":", m_*m^(i*e) )
+print( "m1:", m1, "m2:", m2, "m3:", m3 )
+print( "m:", m )

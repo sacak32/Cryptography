@@ -15,10 +15,12 @@ xinv = inverse_mod( x, e )
 d1 = floor( ( 1 - o1*xinv ) / e )
 d2 = floor( -( o2*xinv ) / e )
 d3 = floor( -( o3*xinv ) / e )
-d = d1 + d2 + d3
-print( "d1:", d1, "d2:", d2, "d3:", d3, "d:", d )
+print( "d1:", d1, "d2:", d2, "d3:", d3 )
     
 a = R(2)
-for i in range(n+1):
-    print( i, ":", a^((d+i)*e) )
-        
+for i in range(n):
+    print( i, ":", a^((d1+d2+d3+i)*e) )
+    if a^((d1+d2+d3+i)*e) == a:
+    	d1 += i
+
+print( "d1:", d1, "d2:", d2, "d3:", d3 )
