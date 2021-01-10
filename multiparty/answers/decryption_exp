@@ -1,0 +1,24 @@
+n = 3
+p1, p2, p3 = 23, 12, 8
+q1, q2, q3 = 35, 8, 16
+p = p1+p2+p3 
+q = q1+q2+q3
+N = p*q
+R = Integers(N)
+e = 101
+
+o1, o2, o3 = N - p1 - q1 + 1, -p2 -q2, -p3 -q3
+print( "o1:", o1, "o2:", o2, "o3:", o3 )
+x = ( o1 + o2 + o3 ) % e
+xinv = inverse_mod( x, e )
+ 
+d1 = floor( ( 1 - o1*xinv ) / e )
+d2 = floor( -( o2*xinv ) / e )
+d3 = floor( -( o3*xinv ) / e )
+d = d1 + d2 + d3
+print( "d1:", d1, "d2:", d2, "d3:", d3, "d:", d )
+    
+a = R(2)
+for i in range(n+1):
+    print( i, ":", a^((d+i)*e) )
+        
