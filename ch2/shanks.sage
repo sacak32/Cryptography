@@ -1,7 +1,3 @@
-# Q 2.17
-print( "Q 2.17" )
-
-# Initialization 
 p = 3571
 R = Integers( p )
 g = R(650)

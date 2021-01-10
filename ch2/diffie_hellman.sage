@@ -1,5 +1,3 @@
-# Initialize values
-
 p = 1373
 R = Integers(1373)
 g = R(2)
