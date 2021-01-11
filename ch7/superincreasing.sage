@@ -1,6 +1,7 @@
-def superincreasing( M, n, S ):
+# given superincreasing sequence M and integer S, solves the problem of (M,S) and returns the solution sequence x, if no solution returns -1
+def superincreasing( M, S ):
 	x = []
-	i = n - 1
+	i = len(M) - 1
 	while i >= 0:
 		if ( S >= M[i] ):
 			x.insert( 0, 1 )
@@ -15,9 +16,7 @@ def superincreasing( M, n, S ):
 	else:
 		return -1
 
-M = [4, 12, 15, 36, 75, 162]
-n = 6
-S = 214
-
-print( superincreasing( M, n, S ) )
+M = (3, 7, 19, 43, 89, 195)
+S = 260
+print( superincreasing( M, S ) )
 		
