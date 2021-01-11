@@ -5,8 +5,4 @@ E = EllipticCurve( GF(p), [0,0,0,A,B] )
 P = E(4,2)
 Q = E(0,1)
 
-for i in range( 2 * p ):
-	print ( i, "P:", i*P )
-	if i*P == Q:
-		break
-		
+print( discrete_log( Q, P, P.order(), operation='+') )
