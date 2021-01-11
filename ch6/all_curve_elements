@@ -1,9 +1,9 @@
 p = 11
 R = Integers( p )
-A = R(2)
+A = R(9)
 B = R(5)
 
-for i in range( 1, p ):
+for i in range( p ):
 	x = R(i)
 	y2 = x^3 + A*x + B
 	y = y2.sqrt(all=True)
