@@ -77,7 +77,7 @@ def bgw( p, n, l, P, Q, values, a, b, c ):
     return lagrange( p, pairs )
     
 # Application of bgw protocol
-p = 23		# make this just too big
+p = 23			# the modulo
 n = 3			# number of people
 l = floor((n-1)/2)
 P = [2,1,2] 		# pi's

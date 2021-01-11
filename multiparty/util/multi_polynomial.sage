@@ -1,8 +1,4 @@
-def lagrange( p, points ):
-	F = GF(p)
-	R = F['x']
-	return R.lagrange_polynomial(points)
-
+# in modulo p, create functions from indexes in c, apply each value in "values" to each created function. n is the number of functions. 
 def multipolynomial( p, n, values, c ):
     # Factory produces functions 
     def factory(i):
@@ -34,27 +30,11 @@ def multipolynomial( p, n, values, c ):
 
 p = 23		# the modula 
 n = 5		# number of functions
-k = 4		# function degree + 1
-v = 3		# values will be multiple of this coefficient
-values = [v*x for x in range(1, n+1) ]	# values to put in functions
-c =  [[3,2,1,3],
-      [2,1,3,4],
-      [7,4,1,2],
-      [5,3,4,1],
-      [4,1,2,2]]	# function coefficients ( n * m ) 
-
-# Apply multipolynomial and get results
-results = multipolynomial( p, n, values, c )
-
-# Calculate sum of raws and create pairs.
-pairs = []
-for i in range(n):
-	sum = 0
-	for j in range(n):
-		sum = ( sum + results[i][j] ) % p
-	
-	print( i+1, "th pair:", [values[i], sum] )
-	pairs.append( [values[i], sum ] )
-
-# Apply first k pairs lagrange interpolation
-lagrange( p, pairs )
+values = [x for x in range(3,16) if x % 3 == 0]	# values to put in functions
+c = [[3,2,1,3],
+     [2,1,3,4],
+     [7,4,1,2],
+     [5,3,4,1],
+     [4,1,2,2]]	# function coefficients ( n * m ) 
+     
+multipolynomial( p, n, values, c )
