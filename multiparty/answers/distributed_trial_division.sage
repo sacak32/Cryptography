@@ -77,6 +77,7 @@ def bgw( p, n, l, P, Q, values, a, b, c ):
     return lagrange( p, pairs )
     
 # Application of bgw protocol
+MAX = 100000		# the resulting N must be smaller than this.
 n = 3			# number of people
 l = floor((n-1)/2)
 P = [23,12,8] 		# pi's
@@ -103,7 +104,7 @@ for p in primes:
     psecond.append( bgw( p, n, l, P, r2, values, a, b, c ) )
     qfirst.append( bgw( p, n, l, Q, r1, values, a, b, c ) )
     qsecond.append( bgw( p, n, l, Q, r2, values, a, b, c ) )
-N = bgw( next_prime(100000), n, l, P, Q, values, a, b, c )
+N = bgw( next_prime(MAX), n, l, P, Q, values, a, b, c )
 
 # print results
 for i in range(len(primes)):

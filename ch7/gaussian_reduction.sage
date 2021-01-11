@@ -1,6 +1,6 @@
 # Gaussian reduction
-v1 = vector([66586820, 65354729])
-v2 = vector([6513996, 6393464])
+v1 = vector([1, 39245579300])
+v2 = vector([0, 122430513841])
 while True:
 	if v2.norm() < v1.norm():
 		v1, v2 = v2, v1
