@@ -9,6 +9,7 @@ for i in range(2,29):
 	P = i*P
 	print( i, P[0], P[1] )
 Q = 28 * P
-print( i, mod(P[0],N), mod(P[1],N) )
+g = gcd( Q[0] - P[0], N )
+print( "gcd:", g )
 
-print( N / 117763 )	
+print( N / int(g) )	
