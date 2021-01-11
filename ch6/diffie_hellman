@@ -16,24 +16,20 @@ S = nb*Qa
 print( "S:", S )
 
 # Part c
-for i in range( 2 * p ):
-	if i*P == Qa:
-		print ( i, "P:", i*P )
-		break 
+na = discrete_log( Qa, P, P.order(), operation='+')
+print( "na:", na )
 
-# Part d		
+# Part d
 xa = R(2)
 nb = 875
 
 Qb = nb*P
 print ( "Qb:", Qb )
 
-nb = R(875)
 ya2 = xa^3 + A*xa + B
 ya = ya2.sqrt(all=True)
 print ( "for xa:", xa, "ya^2:", ya2, "ya:", ya )
 
 Qa = E(2,2575)
-nb = 875
 S = nb*Qa
 print ( "S:", S )
